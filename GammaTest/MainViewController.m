@@ -16,6 +16,7 @@
 @synthesize autoChangeSwitch;
 @synthesize startTimeTextField;
 @synthesize endTimeTextField;
+@synthesize maxBlueSlider;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,6 +52,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     enabledSwitch.on = [defaults boolForKey:@"enabled"];
     maxOrangeSlider.value = [defaults floatForKey:@"maxOrange"];
+    maxBlueSlider.value=[defaults floatForKey:@"maxBlue"];
     autoChangeSwitch.on = [defaults boolForKey:@"autoChangeEnabled"];
     startTimeTextField.text = [timeFormatter stringFromDate:[self dateForHour:[defaults integerForKey:@"autoStartHour"] andMinute:[defaults integerForKey:@"autoStartMinute"]]];
     endTimeTextField.text = [timeFormatter stringFromDate:[self dateForHour:[defaults integerForKey:@"autoEndHour"] andMinute:[defaults integerForKey:@"autoEndMinute"]]];
@@ -65,6 +67,12 @@
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"enabled"])
         [GammaController setGammaWithOrangeness:sender.value];
+}
+- (IBAction)maxBlueSliderChanged:(UISlider*)sender {
+    [[NSUserDefaults standardUserDefaults] setFloat:sender.value forKey:@"maxBlue"];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"enabled"])
+        [GammaController setGammaWithBlueness:sender.value];
 }
 
 - (IBAction)autoChangeSwitchChanged:(UISwitch*)sender {

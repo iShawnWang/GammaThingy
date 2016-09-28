@@ -12,6 +12,7 @@
 
 + (void)setGammaWithRed:(float)red green:(float)green blue:(float)blue;
 + (void)setGammaWithOrangeness:(float)percentOrange;
++ (void)setGammaWithBlueness:(float)percentBlue;
 + (void)setEnabled:(BOOL)enabled;
 + (void)autoChangeOrangenessIfNeeded;
 

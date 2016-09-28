@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, GammaAction) {
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{
         @"enabled": @YES,
         @"maxOrange": [NSNumber numberWithFloat:0.5],
+        @"maxBlue": [NSNumber numberWithFloat:0.5],
         @"autoChangeEnabled": @NO,
         @"lastAutoChangeDate": [NSDate distantPast],
         @"autoStartHour": [NSNumber numberWithInteger:20],

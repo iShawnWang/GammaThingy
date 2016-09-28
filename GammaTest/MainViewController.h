@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *autoChangeSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *startTimeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *endTimeTextField;
+@property (weak, nonatomic) IBOutlet UISlider *maxBlueSlider;
 
 @end
 

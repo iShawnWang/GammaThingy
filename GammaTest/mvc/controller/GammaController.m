@@ -174,6 +174,24 @@ void (*_SBSUndimScreen)();
     [self setGammaWithRed:red green:green blue:blue];
 }
 
++(void)setGammaWithBlueness:(float)percentBlue{
+    percentBlue = percentBlue/7.5;
+    if (percentBlue > 1)
+        percentBlue = 1;
+    else if (percentBlue < 0)
+        percentBlue = 0;
+    
+    float blue = 1.0;
+    float red = 1 - percentBlue;
+    float green = (red + blue)/2.0;
+    
+    if (percentBlue == 0) {
+        red = blue = green = 0.99;
+    }
+    
+    [self setGammaWithRed:red green:green blue:blue];
+}
+
 + (void)enableOrangeness {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self wakeUpScreenIfNeeded];
